@@ -1,9 +1,11 @@
 ---
 name: hermes-ward
-description: Hermes Agent 调用 Ward US Market Data 的接口集成。Ward 跑在 localhost:8000，永不暴露公网。微信/飞书等消息走 Hermes Gateway -> Agent -> Ward API 链路。
+description: Ward US Market Data API 调用指南。任何 AI Agent（Hermes、OpenClaw、Claude Code 等）均可使用。Ward 跑在 localhost:8000，支持美股指数、个股行情、AI 分析报告、盘前盘后数据。
 ---
 
-# hermes-ward — Hermes Agent 调用 Ward API
+# hermes-ward — Ward API 调用指南
+
+适用于任何 AI Agent（Hermes、OpenClaw、Claude Code 等）。Ward 跑在 `localhost:8000`，不暴露公网时通过本地代理转发访问。
 
 ## 基础信息
 
