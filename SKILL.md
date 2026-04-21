@@ -20,6 +20,7 @@ description: Ward US Market Data API 调用指南。任何 AI Agent（Hermes、O
 用户问以下类型问题时，调用 Ward API 获取数据：
 
 - 美股三大指数行情（Nasdaq、道琼斯、标普500）
+- 黄金价格
 - 个股价格、涨跌、成交量
 - 指数/个股的 AI 分析报告
 - 盘前/盘后交易数据
@@ -29,13 +30,15 @@ description: Ward US Market Data API 调用指南。任何 AI Agent（Hermes、O
 
 ## API 速查
 
-### 市场总览（三大指数）
+### 市场总览（三大指数 + 黄金）
 
 ```
 GET http://localhost:8000/api/market-overview
 ```
 
 返回：`{ok, indices: [{name, symbol, close, change, change_pct, volume, high, low, open}]}`
+
+包含：Nasdaq Composite、Nasdaq 100、Dow Jones、S&P 500、Gold（GC=F）。
 
 ### 个股行情
 
