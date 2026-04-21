@@ -1,23 +1,23 @@
-# hermes-ward
+# ward-skill
 
-Hermes Agent 技能，让 Hermes 能通过微信、飞书、Telegram 等消息平台调用 [Ward](https://github.com/rainj2013/ward-agent) 的美股数据 API。
+AI Agent 调用 [Ward](https://github.com/rainj2013/ward-agent) 美股数据 API 的技能说明。适用于 Hermes、OpenClaw、Claude Code 等任何能发 HTTP 请求的 Agent。
 
-用户只需在微信/飞书发消息问美股，Hermes 自动调 Ward API 回复，无需暴露 Ward 到公网。
+用户只需在微信/飞书/Telegram 等平台发消息问美股，Agent 自动调 Ward API 回复。
 
 ## 前置要求
 
 - [Ward](https://github.com/rainj2013/ward-agent) 已安装并运行在 `localhost:8000`
-- Hermes Agent 已安装
+- 任意 AI Agent（Hermes、OpenClaw、Claude Code 等）
 
-## 安装
+## 安装（Hermes）
 
-将 `hermes-ward` 目录放入 `~/.hermes/skills/`：
+将 `ward` 目录放入 `~/.hermes/skills/`:
 
 ```bash
-cp -r hermes-ward ~/.hermes/skills/
+cp -r ward ~/.hermes/skills/
 ```
 
-然后重启 Hermes Gateway：
+重启 Hermes Gateway：
 
 ```bash
 hermes gateway run --replace
@@ -25,7 +25,7 @@ hermes gateway run --replace
 
 ## 使用方式
 
-安装后，在微信/飞书等已接入 Hermes 的平台直接发消息问美股即可，Hermes 会自动识别并调用 Ward API：
+安装后，直接在已接入 Agent 的平台发消息问美股即可：
 
 ```
 # 指数行情
@@ -50,24 +50,26 @@ hermes gateway run --replace
 ## 效果
 
 ```
-用户(微信): 纳斯达克今天怎么样
-Hermes:    Nasdaq 综合: 24,485.70 (+0.33%)
-           Nasdaq 100: 26,666.89 (+0.29%)
-           道琼斯: 49,813.09 (+0.75%)
-           标普 500: 7,131.41 (+0.31%)
-           三大指数全线小幅收涨...
+用户: 纳斯达克今天怎么样
+Agent: Nasdaq 综合: 24,485.70 (+0.33%)
+       Nasdaq 100: 26,666.89 (+0.29%)
+       道琼斯: 49,813.09 (+0.75%)
+       标普 500: 7,131.41 (+0.31%)
+       三大指数全线小幅收涨...
 ```
 
-## 安全设计
+## 公网访问
 
-Ward 默认只绑定 `127.0.0.1:8000`，不暴露公网。所有来自微信/飞书的消息通过 Hermes Gateway 转发到本地 API，无需开放端口。
+Ward 默认只绑定 `127.0.0.1:8000`。如需开启公网访问，设置环境变量 `WARD_PUBLIC_MODE=1` 后重启 Ward：
 
-如需开启公网访问，设置环境变量 `WARD_PUBLIC_MODE=1` 后重启 Ward 即可：
+```bash
+WARD_PUBLIC_MODE=1 screen -dmS ward /root/.venv/bin/ward
+```
 
 ## 目录结构
 
 ```
-hermes-ward/
-├── README.md      # 本文件
-└── SKILL.md       # Hermes Skill 定义（Hermes Agent 自动加载）
+ward/
+├── README.md   # 本文件
+└── SKILL.md    # Agent Skill 定义（Hermes/OpenClaw/Claude Code 等通用）
 ```

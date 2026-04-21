@@ -1,5 +1,5 @@
 ---
-name: hermes-ward
+name: ward
 description: Ward US Market Data API 调用指南。任何 AI Agent（Hermes、OpenClaw、Claude Code 等）均可使用。Ward 跑在 localhost:8000，支持美股指数、个股行情、AI 分析报告、盘前盘后数据。
 ---
 
