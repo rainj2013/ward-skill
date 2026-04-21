@@ -62,7 +62,7 @@ Hermes:    Nasdaq 综合: 24,485.70 (+0.33%)
 
 Ward 默认只绑定 `127.0.0.1:8000`，不暴露公网。所有来自微信/飞书的消息通过 Hermes Gateway 转发到本地 API，无需开放端口。
 
-如需临时开启公网访问（不推荐），设置环境变量 `WARD_PUBLIC_MODE=1` 后重启 Ward。
+如需开启公网访问，设置环境变量 `WARD_PUBLIC_MODE=1` 后重启 Ward 即可：
 
 ## 目录结构
 

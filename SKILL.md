@@ -97,7 +97,7 @@ GET http://localhost:8000/api/stock/search?q=关键词
 
 ## 注意事项
 
-1. **所有 API 调用都在 localhost**，Ward 不应暴露到公网
+1. **所有 API 调用都在 localhost**
 2. **AI 报告有缓存**（TTL 5分钟），短时间内相同 symbol 不会重复生成
 3. **指数 K 线 symbol 格式**：必须是 `^IXIC`/`^DJI`/`^GSPC`
 4. **盘前盘后数据**可能为空
