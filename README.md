@@ -23,6 +23,18 @@ cp -r ward ~/.hermes/skills/
 hermes gateway run --replace
 ```
 
+## 安装（OpenClaw）
+
+将 `ward` 目录放入 `~/.openclaw/skills/`:
+
+```bash
+cp -r ward ~/.openclaw/skills/
+```
+
+## 安装（Claude Code / 其他 Agent）
+
+Skill 本质上是一份 API 调用说明文件（SKILL.md），任何 Agent 只需读取该文件即可获知如何调用 Ward API。直接读取或复制 `SKILL.md` 的内容即可使用。
+
 ## 使用方式
 
 安装后，直接在已接入 Agent 的平台发消息问美股即可：
